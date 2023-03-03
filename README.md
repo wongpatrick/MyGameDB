@@ -1,5 +1,6 @@
 # MyGameDB
 MyGameDB is a simple Game Database Web API built with .NET. It provides a RESTful interface for retrieving information about different video games.
+This project was built as a personal project to get familiar with .NET.
 
 # Installation
 To use MyGameDB, you'll need to have .NET installed on your machine. You can download .NET from the official Microsoft website: https://dotnet.microsoft.com/download
