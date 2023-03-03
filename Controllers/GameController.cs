@@ -13,8 +13,8 @@ public class GameController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<Game> GetGame(int id)
+    [HttpGet("{id?}")]
+    public ActionResult<IEnumerable<Game>> GetGame(int? id)
     {
         // Mock Data
         var games = new List<Game>
@@ -25,12 +25,19 @@ public class GameController : ControllerBase
             new Game { Id = 4, Title = "Half-Life 2", ReleaseDate = new DateTime(2004, 11, 16), Platform = "PC", Genre = "First-person shooter" },
         };
 
+        if (id == null) {
+            return games;
+        }
+
         var game = games.FirstOrDefault(g => g.Id == id);
         if (game == null)
         {
             return NotFound();
         }
+        var singleGame = new List<Game> {
+            game
+        };
 
-        return game;
+        return singleGame;
     }
 }
